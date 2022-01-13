@@ -23,7 +23,7 @@ const Login = () => {
             
         }
           // eslint-disable-next-line
-    }, [mensaje, autenticado, history, mostrarAlerta])
+    }, [mensaje, autenticado])
 
     const [usuario, guardarUsuario] = useState({
         email: '',
@@ -44,10 +44,10 @@ const Login = () => {
         e.preventDefault();
         
         // Validar que no haya campos vacios
-    if(email.trim() === '' || password.trim() === '') {
-        mostrarAlerta('Todos los campos son obligatorios', 'alerta-error');
+    // if(email.trim() === '' || password.trim() === '') {
+    //     mostrarAlerta('Todos los campos son obligatorios', 'alerta-error');
         
-    }
+    // }
 
      //Pasarlo al action
      iniciarSesion({ email,password});
@@ -71,6 +71,7 @@ const Login = () => {
                             id='email'
                             name='email'
                             placeholder='Tu email'
+                            required={true}
                             value={email}
                             onChange={onChange}
                         />
@@ -83,6 +84,7 @@ const Login = () => {
                             id='password'
                             name='password'
                             placeholder='Tu Password'
+                            required={true}
                             value={password}
                             onChange={onChange}
                         />
